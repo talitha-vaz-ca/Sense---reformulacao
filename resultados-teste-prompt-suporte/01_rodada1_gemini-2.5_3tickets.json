@@ -1,0 +1,39 @@
+{
+  "rodada": 1,
+  "descricao": "Primeiro teste: prompt 'alternativa Gemini' (regras do Suporte V2 importadas) em 3 tickets, 3 repeticoes por ticket, para medir a estabilidade do problema_canonico.",
+  "sql": "teste_prompt_suporte_3_tickets.sql",
+  "modelo_endpoint": "gemini-2.5-flash-lite",
+  "config": {"temperature": 0.0, "thinking_budget": 0, "maxOutputTokens": 2000, "connection_id": "us.vertex_connection", "output_schema": "natureza, postura, sentimento, categoria, problema_canonico, descoberta_feature, curadoria, evidencia, resumo"},
+  "prompt": "lista de categorias filtrada por metadado (Cobranca, Financeiro, Conta PJ, Conciliacao, Pagamento, Atendimento por bot), uma categoria so; natureza + postura no lugar do tipo de incidente",
+  "custo_informado_pelo_usuario": "101 MB",
+  "observacao_de_formato": "As 3 repeticoes de cada ticket vieram identicas em todos os campos; por isso cada ticket aparece uma vez, com reps = [1, 2, 3]. A coluna evidencia nao foi devolvida, apenas a contagem de palavras. status_llm veio vazio em todas as linhas.",
+  "resultados": [
+    {
+      "id_ferramenta": "6178426", "reps": [1, 2, 3], "len_prompt": 20062,
+      "natureza": "bug", "postura": "insatisfação", "sentimento": "Insatisfação",
+      "categoria": "Cobrança - Vencidos / Inadiplentes / cálculo automático",
+      "problema_canonico": "Pagamento via Pix em boleto não baixou recebível e não entrou na conta.",
+      "descoberta_feature": "Baixa manual de recebimento via Pix", "curadoria": false, "palavras_evidencia": 9,
+      "resumo": "Cliente relata que pagamento via Pix em boleto não baixou recebível e não entrou na conta.",
+      "status_llm": ""
+    },
+    {
+      "id_ferramenta": "6188174", "reps": [1, 2, 3], "len_prompt": 13953,
+      "natureza": "bug", "postura": "indeterminado", "sentimento": "Gratidão",
+      "categoria": "Financeiro",
+      "problema_canonico": "Baixa automática de boleto não funciona para boletos emitidos por outros bancos",
+      "descoberta_feature": "Baixa manual de boleto emitido por outro banco", "curadoria": false, "palavras_evidencia": 14,
+      "resumo": "O cliente precisa realizar a baixa manual de um boleto emitido por outro banco, pois a baixa automática só funciona para boletos emitidos pela Conta PJ.",
+      "status_llm": ""
+    },
+    {
+      "id_ferramenta": "6189021", "reps": [1, 2, 3], "len_prompt": 13465,
+      "natureza": "bug", "postura": "reclamação", "sentimento": "Insatisfação",
+      "categoria": "Cobrança - Vencidos / Inadiplentes / cálculo automático",
+      "problema_canonico": "Pagamento de boleto não compensado",
+      "descoberta_feature": "Baixa de pagamento de boleto", "curadoria": false, "palavras_evidencia": 11,
+      "resumo": "Cliente relata que o pagamento de um boleto por parte de seu cliente não foi dado baixa no sistema.",
+      "status_llm": ""
+    }
+  ]
+}
