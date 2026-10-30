@@ -3,6 +3,8 @@
 > Conversa de 21/10/2026 no Project "sense - reformulação" (claude.ai).
 > Este arquivo resume o que foi pedido, as fontes consultadas, os fatos medidos, as decisões propostas, os artefatos produzidos e as pendências. Serve como ponto de partida para retomar o trabalho em outra sessão.
 > A versão completa e formatada da proposta está no Notion (link na seção 3).
+>
+> **Atualização de 30/10/2026.** O texto abaixo é o estado de 21/10. Três pontos foram superados e estão marcados no corpo: o acesso ao `sense-platform` (agora lido pelo clone local), a dúvida sobre o orquestrador (resolvida: 5 agentes standalone, sem orquestrador) e os custos do Suporte (as estimativas de US$ 135 e de ≥ US$ 290 por mês foram substituídas pelos logs e pelos testes de 29/10; ver `HISTORICO.md`, seção 3.7). As fontes de dados de cada agente estão em `fontes-de-dados-agentes-sense-2.0.md`.
 
 ---
 
@@ -39,7 +41,7 @@ Formato pedido: Markdown com 5 seções, na ordem:
 | Definição Dataform | `tables/contaazul-datalake-prod/gold_strategy/dim_voc_full_category`, via Blue `search_dataform` | |
 | BigQuery (read-only, últimos 30 dias) | projeto `contaazul-ssbi` | Queries no apêndice |
 | Board de arquitetura (Miro) | https://miro.com/app/board/uXjVGhHxhRg=/ | O As-Is fica no "Frame 1" |
-| GitHub `ContaAzul/documentation` e `ContaAzul/sense-platform` | — | **Não acessados**: repositórios privados (ver seção 8) |
+| GitHub `ContaAzul/documentation` e `ContaAzul/sense-platform` | — | **Não acessados em 21/10** (privados). **Atualização 29–30/10:** o `sense-platform` passou a ser lido pelo clone local (`routines/prod/`); o `documentation` não foi aberto nesta pasta (ver seção 8) |
 
 ---
 
@@ -118,6 +120,7 @@ Formato pedido: Markdown com 5 seções, na ordem:
   - ~353k tokens para classificar ~640 resumos.
   - ~236k tokens para reconciliar.
   - Isso dá ~1,08k tokens por item, ≈ US$ 0,007/item, ≈ US$ 135/mês.
+  - **Superado em 30/10:** essa projeção partia de uma única run. Na DB de Logs (29/09 a 29/10), o Suporte V2 fez 29 runs de ~380 mil tokens e ~US$ 2,5 cada, o que dá de US$ 69 a US$ 122 por mês (out e set). O total estimado dos agentes é ~US$ 360/mês, e o Suporte é ~26%.
 - **Limitações:**
   - O Modo B (merge cross-run) está bloqueado porque não há `cluster_id` imutável nem ledger.
   - O mapa sinal→cid não é persistido.
@@ -131,6 +134,7 @@ Formato pedido: Markdown com 5 seções, na ordem:
 - 76% têm `ai_issue_summary`, o que dá ~1.340 itens classificáveis por dia.
 - O resumo médio tem 158 caracteres, e 97% dos resumos são distintos.
 - **Projeção:** o desenho agêntico atual a 100% custaria ≥ US$ 290/mês só para Suporte, além da fragilidade dos shards.
+  - **Superado em 30/10:** o US$ 290 era a projeção de 21/10 sobre o custo da primeira run. Com o custo medido nos logs, não há uma projeção a 100% do Claude (V2 em 100% não foi medida; ver `resultados-teste-aux-gemini.md`, seção 11).
 
 ### 4.4 Defeitos observados na planilha de categorias
 
@@ -255,6 +259,7 @@ O BigQuery é colunar, então a largura da tabela não é o problema. Os problem
 **Estimativas:**
 
 - Suporte a 100% sai por ~US$ 30–40/mês, contra ~US$ 135/mês por amostra hoje.
+  - **Atualização 30/10:** o casamento do Suporte em 100% com o Gemini mediu ~US$ 0,00085 por chamada, ou US$ 35–55/mês na média de ~1.340 conversas/dia (até ~US$ 80 com o catálogo completo e dias como 19/10). Isso cobre só o casamento; o Claude segue com os sem match, o Score e a Leitura. O custo de hoje do Suporte vem dos logs (US$ 69–122/mês), não dos US$ 135.
 - A Esteira A cai para ≤ ~US$ 20/mês.
 - Reprocessar o histórico (~0,9M itens) custa hoje ~US$ 1,9 mil no Flash-Lite e ~US$ 22 mil a US$ 3/M. Com as otimizações, cai para **~US$ 300**.
 
@@ -308,7 +313,7 @@ O BigQuery é colunar, então a largura da tabela não é o problema. Os problem
 
 ## 8. Pendências e próximos passos
 
-- **Acesso ao GitHub.** Os repositórios `ContaAzul/sense-platform` e `ContaAzul/documentation` são privados: retornam 404 sem login, não há conector do GitHub disponível e o Claude in Chrome não estava conectado. Caminhos possíveis:
+- **Acesso ao GitHub (parcialmente resolvido em 29–30/10: o `sense-platform` é lido pelo clone local; o `documentation` não foi aberto).** O que segue é o estado de 21/10. Os repositórios `ContaAzul/sense-platform` e `ContaAzul/documentation` são privados: retornam 404 sem login, não há conector do GitHub disponível e o Claude in Chrome não estava conectado. Caminhos possíveis:
   - instalar e logar o Claude in Chrome;
   - enviar um .zip ou os arquivos principais na conversa;
   - usar o Claude Code com os repositórios clonados localmente.
@@ -316,6 +321,7 @@ O BigQuery é colunar, então a largura da tabela não é o problema. Os problem
 - **Miro.** Conferir se o widget Mermaid coube no frame "Sense 2.x · Arquitetura To-Be" e ajustar a borda se necessário.
 - **Cache no `AI.GENERATE`.** Verificar se o BigQuery aproveita o cache de prefixo do Gemini no `AI.GENERATE`.
 - **Esclarecimento sobre o As-Is.** A pergunta original falava em "1 orquestrador + N especialistas", mas o Notion mostra que a 2.0 roda sem orquestrador. Confirmar com o desenho do Frame 1 do Miro.
+  - **Resolvido em 29/10:** os prompts de `routines/prod/` do `sense-platform` e a Central do Notion confirmam 5 agentes standalone (Suporte, pNPS, Onboarding, Portal e Cross), sem orquestrador. O orquestrador da 1.0 só existe em `orchestrator-sense-diario.md`, hoje paralisado.
 
 ---
 

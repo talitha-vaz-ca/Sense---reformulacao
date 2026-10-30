@@ -2,7 +2,9 @@
 
 29/10/2026. Escopo: os 4 especialistas e o Cross que a [Sense — Central](https://app.notion.com/p/3a34a554a42f8118ae36fe0582381266) lista como "no ar hoje". O Suporte V2 entra como **controle**, porque já tem um LLM auxiliar na frente (o `ai_issue_summary`, gerado pelo Gemini fora do agente). Complementa `justificativa-design-agente-suporte-v2.md`.
 
-Nada aqui foi executado em `AI.GENERATE`: o MCP de BigQuery não tem acesso ao dev nem a essa função. O que rodei foram consultas de leitura em prod para medir volumes e validar as seleções (números na seção 2). Os três scripts SQL estão prontos para você rodar no console do BigQuery, em `contaazul-datalake-dev`.
+> **Estado em 30/10/2026.** Este é o plano de 29/10, antes dos testes. Os testes AUX-S (Suporte), AUX-N (pNPS) e AUX-P (Portal) foram rodados em 29/10 e os resultados estão em `resultados-teste-aux-gemini.md`. AUX-O (Onboarding) e AUX-X (Cross) seguem sem script. O parágrafo a seguir é a redação original.
+
+(Redação de 29/10, antes dos testes.) Nada aqui foi executado em `AI.GENERATE`: o MCP de BigQuery não tem acesso ao dev nem a essa função. O que rodei foram consultas de leitura em prod para medir volumes e validar as seleções (números na seção 2). Os três scripts SQL estão prontos para você rodar no console do BigQuery, em `contaazul-datalake-dev`.
 
 ## 1. Hipótese e desenho
 
@@ -111,9 +113,11 @@ Os limiares são **proposta minha**, ancorados no que medimos antes (o prompt de
 | G1 fidelidade agregada | **Suporte:** Spearman ≥ 0,85, top-10 em comum ≥ 8, erro relativo médio top-30 ≤ 30%. **pNPS:** Spearman N2 ≥ 0,90, desvio ≤ 20% nos N2 com ≥10 menções, "Sem tema" a ±5 p.p. **Portal:** tema ≥ 85%, cluster (oráculo) ≥ 70%, NEW correto ≥ 60% | AUX-S, N, P |
 | G2 conjunto rotulado | 50 itens por agente, rotulados por especialista; precisão do Gemini ≥ precisão do agente atual. **Sem isto, nenhuma conclusão de acerto.** | Todos |
 | G3 direção do erro | Match errado ≤ 5% dos itens; o resto dos erros deve ser falso NEW | AUX-S, P |
-| G4 operacional | Zero PII devolvida; custo do estágio 1 documentado; latência medida (hoje só tenho o 2,125 s de um job, ainda sem confirmar qual era) | Todos |
+| G4 operacional | Zero PII devolvida; custo do estágio 1 documentado; latência medida (hoje só tenho o 2,125 s de um job, ainda sem confirmar qual era; o board do Miro cita ~30 s para o Gemini classificar 1.254 conversas no teste AUX-S, em 30/10) | Todos |
 
 ## 5. Ordem de execução
+
+> **Estado em 30/10:** os passos 1 a 4 foram executados (resultados em `resultados-teste-aux-gemini.md`). Os passos 5 (rótulo dos times), 6 (decisão sobre o teste-sombra do Onboarding) e 7 (fase 2) seguem abertos.
 
 | Passo | Quem | O quê | Pré-requisito |
 |---|---|---|---|
@@ -154,4 +158,4 @@ Só depois de passar G0 a G3. O objetivo é medir o que a fase 1 não mede: **to
 | `justificativa-design-agente-suporte-v2.md` | Justificativa de design da V2 |
 | `comparativo-ab-vs-sense2-0.md`, `simulacao-dia-2026-10-19-sense2-vs-ab.md` | A + B do Suporte, que este plano estende |
 
-**Não validado:** as consultas de resultado (R1 em diante) e as chamadas `AI.GENERATE` dos três scripts nunca rodaram; só as seleções de população foram executadas como leitura em prod. Se der erro de sintaxe ou de coluna, cole a mensagem e eu corrijo.
+**Não validado (redação de 29/10, antes dos testes; os três scripts foram rodados depois, ver `resultados-teste-aux-gemini.md`):** as consultas de resultado (R1 em diante) e as chamadas `AI.GENERATE` dos três scripts nunca rodaram; só as seleções de população foram executadas como leitura em prod. Se der erro de sintaxe ou de coluna, cole a mensagem e eu corrijo.

@@ -6,6 +6,12 @@
 - **Base de conhecimento:** pasta “Sense - reformulacao” no Google Drive (documento de contexto da proposta e documento de arquitetura das tabelas VoC no Dataform)
 
 > Os trechos em itálico entre colchetes resumem as ações feitas pelo Claude com ferramentas (leitura de arquivos, criação e publicação dos slides). As mensagens do Claude estão reproduzidas como foram enviadas.
+>
+> **Registro histórico de 27/10; atualização de 30/10/2026.** Este arquivo não foi reescrito. Quatro pontos foram superados desde então:
+> - **Custos do Suporte** (US$ ≥ 290, ~135 e 30–40 por mês, nas seções 1, 3 e 6): vieram da primeira run de produção. Os logs de 29/09 a 29/10 dão US$ 69–122/mês para o Suporte V2, e o casamento em 100% com o Gemini mediu US$ 35–55/mês (só o casamento). Ver `HISTORICO.md`, seção 3.7.
+> - **Orquestrador** (linha 43 e seção 10): resolvido; a 2.0 tem 5 agentes standalone, sem orquestrador.
+> - **Comparar com o código do `sense-platform`** (seção 10): feito para os prompts de `routines/prod/`; as fontes de cada agente estão em `fontes-de-dados-agentes-sense-2.0.md`.
+> - **Cache de prefixo no `AI.GENERATE`**: segue sem confirmação.
 
 ---
 

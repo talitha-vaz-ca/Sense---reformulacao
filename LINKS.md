@@ -53,7 +53,10 @@ Links internos exigem acesso à Conta Azul. O link do Miro foi gravado **sem** o
 | `contaazul-ssbi.gold_serve.dim_zendesk_tickets_detailed` | Tickets do Zendesk (N2/N3, tempo, perfil); grão de ticket |
 | `contaazul-ssbi.gold_nps.fact_nps_survey` | Respostas e comentários de NPS (fonte do pNPS) |
 | `contaazul-ssbi.silver_ideas_portal.ideas_portal` | Ideias do portal (fonte do Portal) |
-| `contaazul-ssbi.tmp_data_analytics.sense_ideas_portal_cluster_map` e `..._cluster_meta` | Backfill de clusters do Portal (mapa id para cluster, e metadados) |
+| `contaazul-ssbi.tmp_data_analytics.sense_ideas_portal_cluster_map`, `..._cluster_meta`, `..._votes_snapshot` e a view `..._clusters` | Gold do Portal, criada e mantida pelo próprio agente (nasceu do backfill). Fica em `tmp_data_analytics`, fora do Dataform |
+| `contaazul-ssbi.gold_onboarding.dim_onboarding_meetings`, `fact_onboarding_activation` e `fact_onboarding_funnel` | Fontes do Onboarding. A transcrição do MeetRox vem pela API, fora do BigQuery |
+| `contaazul-ssbi.gold_capro_features.fact_capro_features`, `gold_partners.fact_partner_revenue`, `gold_partners.fact_customer_partner_profile`, `silver_ds_churn.churn_score_prediction` e `gold_common.dim_company` | Perfis do pNPS (amplitude de uso, parceiros, churn e empresa) |
+| `contaazul-ssbi.silver_master_data.company` | Churn lido pelo Cross, só se um sinal trouxer o dado (segundo o prompt) |
 | `contaazul-datalake-dev.dataform.tmp_aux_*` | Tabelas temporárias dos testes AUX (expiram em 7 dias) |
 | `contaazul-datalake-dev.dataform.tmp_sim_suporte_20261019_*` | Tabelas temporárias da simulação do dia 19/10 |
 
@@ -62,3 +65,5 @@ Arquivo do Dataform da ingestão do Intercom: `definitions/silver/serve/tables/i
 ## Este repositório
 
 https://github.com/talitha-vaz-ca/Sense---reformulacao
+
+Mapa completo das fontes de cada agente: `fontes-de-dados-agentes-sense-2.0.md`.

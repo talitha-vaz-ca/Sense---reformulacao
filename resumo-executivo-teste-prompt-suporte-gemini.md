@@ -4,7 +4,7 @@
 
 ## Em uma frase
 
-É possível acrescentar a classificação de Suporte (natureza do problema e texto canônico do problema) ao Sense sem mexer no que já existe, por cerca de US$ 11 a mais por mês (+15%) e mais uma chamada por ticket do Zendesk. O que o teste não prova é que a classificação acerta, nem que o texto do problema agrupa sozinho.
+É possível acrescentar a classificação de Suporte (natureza do problema e texto canônico do problema) ao Sense sem mexer no que já existe, por cerca de US$ 11 a mais por mês (+15% sobre a `dim_voc`; sobre a `dim_voc` e os agentes juntos, cerca de 3%, conforme a atualização de 30/10 no `comparativo-ab-vs-sense2-0.md`) e mais uma chamada por ticket do Zendesk. O que o teste não prova é que a classificação acerta, nem que o texto do problema agrupa sozinho.
 
 ## O que queríamos saber
 

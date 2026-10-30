@@ -4,7 +4,20 @@
 
 > **Atualização, rodada 2 (29/10, tarde; linha de base na seção 10):** os "JSON inválidos" do Suporte eram falha do meu parse (resposta com vários objetos), já corrigida, e a validade foi a 100%. O ranking do Suporte continua em Spearman ~0,60. O Portal v2 corrigiu o erro do script e **não mudou a conclusão**. Detalhes na seção 9.
 
-## 1. Resumo
+## Estado atual (30/10/2026)
+
+As seções 1 a 3, 6 e 9.4 trazem números da rodada 1 (por exemplo, JSON do Suporte em 93,2% e Spearman 0,58) e ficam como registro. O que vale hoje é a tabela abaixo, que usa as rodadas 2 e a cobertura de 100% (seções 9 e 11). A conclusão da seção 10 sobre limiares "irreais" foi retratada na seção 11.
+
+| Agente | Estado | Números atuais | Pendente |
+|---|---|---|---|
+| **pNPS** | Melhor candidato | JSON 99,7%; Spearman 0,89 e Pearson 0,94 contra o agente; 6 de 9 N2 fora de ±20%; ~US$ 0,11 por rodada | Rótulo humano (R7); ajuste do prompt (Facilidade, Elogio a recurso, Pós-venda); `n_reps = 2` |
+| **Suporte** | Não substitui o casamento ainda | JSON 100% (parse corrigido); Spearman 0,60 contra a V2, com teto de amostragem de 0,86 (Gemini 30% contra Gemini 100%); 96% das conversas casadas com um catálogo de 53% dos sinais; ~US$ 0,00085 por chamada | R8 rotulado; V2 em 100% não medida; `n_reps = 2` |
+| **Portal** | Inconclusivo | JSON 100%; cluster certo 35% (oráculo); backfill grosso, com 930 itens de tema inconsistente | Adjudicar ~50 casos; revisar os clusters com 20 ou mais ideias |
+| **Onboarding, Cross** | Sem teste | n/a | AUX-O (30 transcrições exportadas e decisão sobre a regra I5) e AUX-X |
+
+Dos próximos passos da seção 7, os de número 1 a 3 foram executados em 29/10 (seções 9 a 11); os de número 4 a 6 seguem abertos.
+
+## 1. Resumo (rodada 1)
 
 | Agente | Resultado | Leitura |
 |---|---|---|
@@ -213,7 +226,7 @@ Todas as 1.161 chamadas (387 ideias × 3 modos) voltaram válidas. 35 das 387 id
 3. **Mas a comparação não é equivalente.** A V2 de dois dias usa conversas diferentes (amostra de 30% sorteada de novo) e volume real diferente; o Gemini e a V2 do mesmo dia usam **as mesmas 707 conversas**, então o que difere ali é só o classificador. O baseline mede estabilidade da V2 ao longo do tempo, não o "teto" de concordância entre dois classificadores. O baseline certo seria a V2 classificando as mesmas 707 conversas duas vezes, que não existe.
 4. **O ranking não vê o erro de match.** A direção do erro (o Gemini forçando match, 96% de casamento com um catálogo de 53% dos sinais, 1 errada e ~5 frouxas em 20 casadas) continua sendo o ponto fraco do Suporte, e é o G3, não o G1.
 
-**Veredito do Suporte, atualizado:** G0 passa (100%); G1 passa contra a linha de base da V2, mas não contra os limiares originais, que descarto; G3 continua provável reprovado; G2 pendente. Para decidir, falta medir a taxa de match errado com rótulo de especialista (R8) e, se possível, a autoconsistência (`n_reps = 2`).
+**Veredito do Suporte, atualizado (superado pela seção 11, que volta o G1 a "reprovado"):** G0 passa (100%); G1 passa contra a linha de base da V2, mas não contra os limiares originais, que descarto; G3 continua provável reprovado; G2 pendente. Para decidir, falta medir a taxa de match errado com rótulo de especialista (R8) e, se possível, a autoconsistência (`n_reps = 2`).
 
 ## 11. Cobertura de 100% da população do dia (19/10) e correção da seção 10
 

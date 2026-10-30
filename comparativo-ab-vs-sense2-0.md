@@ -2,11 +2,17 @@
 
 28/10/2026. Consolida `resultados-teste-prompt-suporte-gemini.md` (teste de 33 tickets) e `simulacao-dia-2026-10-19-sense2-vs-ab.md` (dia completo, 19/10). Dados brutos em `resultados-teste-prompt-suporte/`.
 
+> **Atualização de 30/10/2026.** Três correções, sem alterar os números medidos abaixo:
+>
+> 1. **Base de custo parcial.** O "Sense 2.0 total" (US$ 4,88/dia e US$ 128,5/mês) soma só a `dim_voc` (A) e o agente de Suporte V2. Pela DB de Logs (29/09 a 29/10), os agentes custam ~US$ 360/mês (Onboarding ~63%, Suporte ~26%, Cross ~9%). Somando os ~US$ 72 da `dim_voc`, a base é de ~US$ 430, e os US$ 11/mês da chamada B equivalem a cerca de 3% (conta minha, sobre estimativas), não a 8,6%.
+> 2. **Populações diferentes.** A chamada B classifica tickets do Zendesk (1.215 em 19/10). O teste AUX-S classifica conversas do Intercom com resumo (1.961 em 19/10, das quais a V2 lê 707). As duas tratam do Suporte e não são a mesma entrega; os documentos não as somam, e escolher uma ou definir como convivem é decisão pendente. O Intercom não é fonte da `dim_voc`.
+> 3. **Tempo.** O job de 2,125 s segue sem identificação do comando. O board do Miro cita ~30 s para o Gemini classificar 1.254 conversas no BigQuery (teste AUX-S); são medições diferentes.
+
 Etiquetas usadas nas tabelas: **[medido]** vem do BigQuery ou de um job rodado; **[log]** vem do log de execução do agente no Notion; **[doc]** vem dos documentos do projeto; **[est.]** é estimativa minha (4 caracteres por token; US$ 0,25 por milhão de tokens de entrada e US$ 1,50 de saída no Gemini 3.1 Flash-Lite, preços de agregadores; US$ 6,6 por milhão de tokens mistos para o agente, convenção do time).
 
 ## 1. Leitura rápida
 
-1. **A + B ficam 8,6% a 11% mais caros que o Sense 2.0 de hoje** (US$ 5,42 contra US$ 4,88 no dia 19/10; US$ 139,6 contra US$ 128,5 por mês, se o agente V2 for mantido).
+1. **A + B ficam 8,6% a 11% mais caros que o Sense 2.0 de hoje, sobre uma base parcial (ver a atualização de 30/10 acima)** (US$ 5,42 contra US$ 4,88 no dia 19/10; US$ 139,6 contra US$ 128,5 por mês, se o agente V2 for mantido).
 2. **Em volume, A + B estrutura 1.215 tickets do dia, um a um**, contra 705 conversas classificadas pelo agente de Suporte em um universo de 2.728. A + B alcança 391 tickets que o agente não vê (66 deles N2/N3).
 3. **O job informado (2,1 s) indica que a chamada B para o dia inteiro é rápida**, mas é uma única medição e eu assumi que é o job da B (ver seção 4).
 4. **Assertividade comparada:** a chamada A reproduz 85% a 88% do que o Sense 2.0 grava. Os campos novos (B) não têm equivalente por ticket no Sense 2.0, e nem um lado nem outro tem acerto medido contra rótulo humano.

@@ -1,6 +1,6 @@
 # Histórico, decisões e ideias
 
-Resumo organizado do trabalho feito nas conversas com o Claude sobre a reformulação do Sense, até 29/10/2026. Os detalhes e os dados estão nos arquivos citados em cada seção. Onde um número é estimativa ou leitura minha (do Claude), está marcado.
+Resumo organizado do trabalho feito nas conversas com o Claude sobre a reformulação do Sense, até 30/10/2026. Os detalhes e os dados estão nos arquivos citados em cada seção. Onde um número é estimativa ou leitura minha (do Claude), está marcado.
 
 ## 1. Objetivo
 
@@ -20,6 +20,8 @@ Entender como o Sense 2.0 funciona hoje, onde estão o custo e a dependência do
 | 29/10 | Mapa dos outros agentes e **plano de testes de LLM auxiliar** (AUX-S, AUX-N, AUX-P, AUX-O, AUX-X). Desenho no Miro. | `plano-testes-llm-auxiliar-gemini-outros-agentes.md`, Miro |
 | 29/10 | Resultados dos testes AUX, correção do parse do Suporte, script v2 do Portal, linha de base e cobertura de 100%. | `resultados-teste-aux-gemini.md` |
 | 29/10 | Custo e tempo reais da DB de Logs; quadro "Resumo: as is, to be e tbd" no Miro. | Miro, `README.md` |
+| 30/10 | **Mapeamento das fontes de dados** de cada agente: tabelas confirmadas nos prompts de `routines/prod/`, no BigQuery de produção e no Notion, com as divergências da Central do Notion. | `fontes-de-dados-agentes-sense-2.0.md` |
+| 30/10 | **Revisão do board** (Hoje, Proposta e Resumo) com o mapeamento: oportunidades por agente e estimativa de volume e custo da camada Gemini. Revisão dos documentos desatualizados da pasta. | Seção 3.7 abaixo |
 
 ## 3. Achados e decisões
 
@@ -75,6 +77,42 @@ Entender como o Sense 2.0 funciona hoje, onde estão o custo e a dependência do
 - **Correção registrada:** a "linha de base" da V2 entre dias (Spearman 0,48) mede outra coisa (volume e amostras diferentes por dia) e não deve ser critério de aceite.
 - Nenhum resultado prova acerto: falta rótulo de especialista.
 
+### 3.7 Oportunidades e custo da camada Gemini (30/10)
+
+Base: o board "Sense estrutura", o mapeamento de fontes e os testes de 29/10. Preço dos testes: US$ 0,25 por milhão de tokens de entrada e US$ 1,50 de saída (agregadores). Nada abaixo é fatura. As economias do Claude são **hipóteses minhas**, não medidas.
+
+**Fatos que mudam a leitura**
+- O Gemini 3.1 flash-lite já roda no data lake: `dim_voc_full_category` (~US$ 72/mês, estimativa) e o resumo do MeetRox (que o Onboarding usa só como gate). A camada nova não é infraestrutura nova.
+- O Onboarding é 63% do custo dos agentes (~US$ 227/mês) e está preso à regra I5 (ler a transcrição inteira). O Suporte é ~26% e o Cross ~9%.
+- Em 19/10, 767 das 2.728 conversas (28%) não tinham `ai_issue_summary` e ficam invisíveis ao agente de Suporte.
+
+**Volume e custo mensal do Gemini (novo)**
+
+| Frente | Volume mensal | Custo mensal |
+|---|---|---|
+| Suporte, 100% | ~40 mil conversas com resumo (média de 1.340/dia), ~125 milhões de tokens | US$ 35–55 (US$ 34 com 146 sinais no catálogo; US$ 53 com os 273); teto de ~US$ 80 se todo dia fosse como 19/10 |
+| pNPS | ~340 comentários, ~0,5 milhão de tokens | US$ 0,1–0,3 |
+| Portal | ~40 ideias, ~0,1 milhão de tokens | < US$ 0,05 (reprocessar o backfill inteiro: ~US$ 5, uma vez) |
+| Onboarding, em paralelo | 30–50 reuniões/dia × ~25 mil tokens, ~17–28 milhões de tokens | US$ 6–10 |
+| Cross, pré-agrupar | ~630 Descrições | < US$ 0,1 |
+| **Total** | **~150 milhões de tokens** | **≈ US$ 42–65** |
+
+**Cenários (total mensal, Gemini + Claude, partindo de ~US$ 360 do Claude)**
+
+| Cenário | Gemini | Claude | Total |
+|---|---|---|---|
+| Hoje | n/a | ~US$ 360 | ~US$ 360 |
+| Sombra de 2 a 3 semanas (proposta do board) | +~US$ 50 | sem mudança | ~US$ 410 no mês |
+| Suporte em 100% (hipótese: Claude −30% a −60% no Suporte) | +US$ 35–55 | −US$ 28 a −56 | ~US$ 340–390 (neutro) |
+| Anterior + Onboarding com a regra I5 revista (hipótese: Claude −40% a −60% no Onboarding) | +US$ 6–10 | −US$ 91 a −136 | ~US$ 210–305 (−15% a −42%) |
+
+Leitura: no Suporte, o ganho é de cobertura (contagem exata e cauda rara), não de custo. O custo total só cai de verdade se o dono do Onboarding aceitar rever a regra I5. Com cache de prefixo funcionando, o Gemini do Suporte poderia cair para ~US$ 10–20, mas isso não está confirmado no `AI.GENERATE`.
+
+**Ressalvas sobre o board**
+- A frase "o único LLM fora do Claude é o `ai_issue_summary`" está incompleta (ver os fatos acima).
+- O custo de ~US$ 1,70/dia a 100% usa o dia 19/10, acima da média; na média seria ~US$ 1,15 (146 sinais) ou ~US$ 1,80 (273).
+- O Suporte aparece como ~US$ 73 em 30 dias e como 26% de US$ 360 (~US$ 94); os logs dão de US$ 69 a US$ 122 por mês.
+
 ## 4. Ideias e hipóteses em jogo
 
 1. **A + B:** um prompt generalista (o de produção, intacto) mais um prompt especialista em chamada separada, por ticket.
@@ -97,7 +135,10 @@ Entender como o Sense 2.0 funciona hoje, onde estão o custo e a dependência do
 - Portal: revisar os 930 itens com tema inconsistente e os clusters com 20 ou mais ideias (43% dos itens).
 - Origem e corrupção do `ai_issue_summary` no Intercom (o Dataform só extrai o atributo).
 - Trocar a taxa de amostra de 30% para 100% corta a série diária (política de "rebase"); isso afeta a tendência que o Cross lê.
-- Confirmar qual job tem o tempo de 2,125 s citado na simulação do dia 19/10 (suposto ser a chamada B).
+- Confirmar qual job tem o tempo de 2,125 s citado na simulação do dia 19/10 (suposto ser a chamada B). Segue aberta em 30/10; o board cita ~30 s para 1.254 conversas no teste AUX-S, que é outra medição.
+- Conciliar a chamada B (tickets do Zendesk) com o teste AUX-S (conversas do Intercom): as duas classificam o Suporte, com populações diferentes. O Intercom não é fonte da `dim_voc`.
+- Medir o Gemini sobre as conversas sem `ai_issue_summary` (~28% em 19/10), cuja entrada seria o `message_body`.
+- Confirmar se o `AI.GENERATE` aproveita cache de prefixo (afeta o custo do Suporte e da `dim_voc`).
 
 ## 6. Como retomar
 
