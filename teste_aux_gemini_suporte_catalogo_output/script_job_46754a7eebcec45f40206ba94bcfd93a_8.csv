@@ -1,0 +1,31 @@
+nome,v2,gemini,conversas_gemini
+Aumento/reajuste do valor da renovação do plano percebido como excessivo,96.0,42.7,17
+Erro genérico na emissão de nota fiscal (sem detalhe),64.0,49.7,24
+Cancelamento de plano/assinatura por decisão do cliente (conta própria),60.6667,66.0,24
+Negociação de valor/desconto na renovação do plano,56.3333,108.0,38
+Divergência de saldo na conciliação bancária,55.3333,41.0,13
+Dúvida genérica sobre como funciona a renovação do plano,43.3333,56.7,17
+Descoberta: informações gerais sobre a CA Pro (pré-venda),40.0,13.3,4
+Nota fiscal de devolução: dúvida de preenchimento (IPI/ICMS/DIFAL) e vínculo com a nota original,40.0,30.0,9
+Status/prazo do chamado,34.0,10.0,3
+Descoberta: gerar relatório personalizado (Excel/DRE/centro de custo),33.3333,40.0,12
+Erro/dúvida na retenção de impostos (ISS/PIS/COFINS) na nota fiscal,30.6667,34.0,13
+"Descoberta: lançar transferência entre contas, fatura de cartão e pagamento parcial",30.0,23.3,7
+Cancelamento/reativação de licença,26.6667,20.0,6
+Reenquadramento automático migra plano para faixa de faturamento divergente do esperado,23.3333,6.7,2
+Descoberta: integração via API pública,23.3333,20.0,6
+Insatisfação com qualidade/demora do atendimento de suporte,22.0,3.3,1
+"Erro no código/classificação tributária do serviço (CNAE, código de serviço, ISS)",21.0,16.7,5
+MFA/2FA: reset e recuperação de acesso,20.0,26.7,8
+QR Code para configurar autenticador (2FA) não aparece corretamente,20.0,13.3,4
+Descoberta: adesão/prazo do Emissor Nacional (NFS-e padrão nacional) para o município,20.0,10.0,3
+"Descoberta: estoque (ajuste, baixa, relatório, kits)",20.0,20.0,6
+"Descoberta: configurar boleto bancário (banco, Pix, código da empresa)",20.0,20.0,6
+Lançamentos bancários não aparecem/somem na conciliação após importação,19.6667,3.3,1
+Renovação/cobrança automática do plano sem autorização percebida pelo cliente,17.6667,4.3,2
+"Descoberta: canal, horário e contato do suporte",17.6667,25.3,9
+Erro E160 (carga tributária aproximada obrigatória) trava emissão de NFS-e,17.3333,31.3,15
+"Reset/recuperação de acesso à conta (login/senha, sem MFA)",16.6667,13.3,4
+Descoberta: obter boleto de pagamento,16.6667,16.7,5
+"Descoberta: importar planilha (contas a pagar, clientes, serviços)",16.6667,27.7,9
+"Descoberta: cadastrar cliente, vendedor e parceiro",16.6667,26.7,8

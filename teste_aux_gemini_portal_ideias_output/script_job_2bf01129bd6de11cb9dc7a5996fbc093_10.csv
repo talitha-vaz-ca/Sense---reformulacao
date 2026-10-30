@@ -1,0 +1,18 @@
+tema_cat,clusters_no_tema,chars_catalogo,tokens_catalogo,chamadas
+Fiscal & Notas Fiscais,129,9537,2384.0,77
+Financeiro (Pagar/Receber),118,9272,2318.0,54
+Vendas & Orçamentos,104,7367,1842.0,40
+Relatórios & DRE,73,5618,1405.0,50
+Estoque & Produtos,66,5082,1271.0,30
+Cobrança & Boletos,58,4337,1084.0,30
+Plataforma & UX,46,3365,841.0,15
+Cadastros (Clientes/Forn./Produtos),41,3200,800.0,20
+Contratos & Recorrência,40,3169,792.0,12
+Conciliação & Integração Bancária,35,2685,671.0,12
+Perfil de Acesso & Permissões,25,1822,456.0,13
+Integrações & API,20,1412,353.0,11
+Contabilidade & Integração Contábil,18,1346,337.0,7
+PDV & Frente de Caixa,17,1321,330.0,3
+Mobile / App,12,819,205.0,6
+Outros / Não-ideia,13,752,188.0,5
+Folha & RH,3,254,64.0,2

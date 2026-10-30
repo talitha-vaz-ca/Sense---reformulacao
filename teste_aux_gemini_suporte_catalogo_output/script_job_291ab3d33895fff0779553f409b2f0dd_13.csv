@@ -1,0 +1,70 @@
+grupo,cid,balde,resumo,sinal_escolhido,assunto_rascunho,natureza
+casada,215476464134705,amostra,"Como posso obter ou comprovar a recusa de uma nota fisl de compra feita no  para apresentar à contabilidade?
+A recusa de uma nota fisl no  é informada à Receita e gera um evento fisl oficial?
+Como posso lolizar rapidamente uma nota fisl recusada para enviar à contabilidade?",Descoberta: baixar XMLs de notas (entrada/saída) para contabilidade,,dúvida
+casada,215476459008341,amostra,"É possível renovar o sistema pelo mesmo valor que paguei anteriormente por outro CNPJ, já que o valor da renovação está muito alto?",Aumento/reajuste do valor da renovação do plano percebido como excessivo,,comercial
+casada,215476465272965,amostra,"Ao tror um contrato recorrente de serviço para produto, a NF-e é emitida automatimente?
+É possível emitir várias NF-e em lote?",Descoberta: emitir notas fiscais em massa/comissão via integração Shopee,,usabilidade
+casada,215476459628630,amostra,Como posso tratar do aumento da mensalidade?,Aumento/reajuste do valor da renovação do plano percebido como excessivo,,comercial
+casada,215476466440195,censo_n2n3,"Por que o chamado foi encerrado antes da conclusão das análises e da resolução de todas as questões levantadas?
+Vocês podem enviar um print ou evidência que comprove que os usuários responsáveis pela criação dos lançamentos financeiros foram dastrados por meio da credencial genival@saltseguran.com.br, e esclarecer se os lançamentos foram realizados pelos próprios usuários ou diretamente pela conta genival@saltseguran.com.br?
+Qual é o prazo para retorno e quanto tempo demora para iniciar a tratativa do chamado reaberto?",Chamado/atendimento: status e prazo sem resolução,,operacional
+casada,215476458876186,amostra,"Como faço para configurar a autentição de dois fatores se o aplitivo Google Authentitor não reconhece o e-mail rosiane@amaralcontabilidade.com.br e não gerou o QR code?
+Como faço para bloquear o acesso da conta em outro dispositivo que eu estava usando antes?",QR Code para configurar autenticador (2FA) não aparece corretamente,,usabilidade
+casada,215476465600863,amostra,"Como posso corrigir o erro E160 ao emitir a NFS-e, que informa que a lolidade de incidência do IBS/CBS deve ser 5105259 para o indidor de operação 100501?",Erro E160 (carga tributária aproximada obrigatória) trava emissão de NFS-e,,bug
+casada,215476463702054,amostra,"Por que os valores da  não batem com os valores do Banco Itaú durante a conciliação?
+Por que os lançamentos “SALDO APLIC AUT MAIS” aparecem no extrato em PDF do Itaú, mas não aparecem na ?",Divergência de saldo na conciliação bancária,,bug
+casada,215476466211028,amostra,Por que não estamos conseguindo emitir NFS-e desde a semana passada e por que está ocorrendo esse erro?,Instabilidade/erro genérico de comunicação com a prefeitura na emissão de NFS-e,,bug
+casada,215476464226691,censo_n2n3,Como posso dar continuidade ao ticket para tror o e-mail atual da conta PJ de comercial@gmsprojetos.com para diretor@gmsprojetos.com?,"Descoberta: atualização cadastral (como fazer / opção ""Atualizar agora"" não aparece)",,usabilidade
+casada,215476459742117,censo_n2n3,"Como posso resolver o erro E160 ao emitir uma nota?
+Por que o valor do IBS e CBS saiu diferente na nota?",Erro E160 (carga tributária aproximada obrigatória) trava emissão de NFS-e,,bug
+casada,215476458573496,censo_n2n3,"Por que as notas fisis não estão sendo geradas ou emitidas corretamente, mesmo usando os mesmos códigos de serviço que funcionaram nos meses anteriores?
+Como posso resolver o problema para emitir as 6 notas fisis pendentes para essa empresa?",Erro genérico na emissão de nota fiscal (sem detalhe),,bug
+casada,215476460291600,amostra,"Posso renovar meu plano de trimestral para mensal e qual seria o valor?
+Vocês podem me enviar o boleto ou a forma de pagamento por aqui para pagamento à vista hoje ou agendar para amanhã, dia 20/10?",Descoberta: obter boleto de pagamento,,comercial
+casada,215476465572441,amostra,Vocês podem desbloquear três contas para pagamento no rtão de crédito?,Descoberta: como regularizar pagamento para liberar acesso bloqueado,,operacional
+casada,215476467613795,amostra,Como importar uma planilha para contas a pagar?,"Descoberta: importar planilha (contas a pagar, clientes, serviços)",,dúvida
+casada,215476464549546,censo_n2n3,"Por que a  está informando que eu não paguei a mensalidade?
+Como posso contestar uma cobrança indevida?
+Qual é o valor da cobrança?",Sistema bloqueia acesso pedindo novo plano mesmo com plano ativo pago,,bug
+casada,215476458848159,amostra,"Como podemos corrigir o layout das notas fisis emitidas no  para que os clientes não questionem a retenção do ISS, sem que o ISS seja retido?
+Por que nenhuma das notas fisis emitidas no  em outubro aparece no Portal Nacional, embora apareça no portal da prefeitura?",Notas emitidas no Portal Nacional/prefeitura não sincronizam nem são importadas para o sistema,,bug
+casada,215476465992813,amostra,"Vocês conseguem verifir o histórico do meu atendimento de hoje?
+Por que o valor da nota fisl de outubro n. 83025, de R$ 1.170,91, não bate com o valor do boleto de R$ 1.199,08 para pagamento da mensalidade da ?",Valor da NFS-e diverge do valor do boleto/contas a receber,,bug
+casada,215476466360749,censo_n2n3,"Por que meu saldo continua divergente mesmo após eu ter realizado todos os procedimentos necessários?
+Quanto tempo vai demorar para resolverem a questão do saldo divergente?
+Eles vão me contatar por ligação ou por mensagem?",Divergência de saldo na conciliação bancária,,bug
+casada,215476458670822,amostra,"Como posso agendar o pagamento do FGTS se o boleto não tem linha legível e a opção de PIX copia e cola não permite alterar a data de vencimento?
+É possível enviar as informações por e-mail para bpo03@blueiq.com.br com cópia para leandro@blueiq.com.br?",Dúvida genérica sobre uso do sistema,,dúvida
+sem_match,215476464633895,amostra,"Como posso baixar em lote os anexos do extrato de movimentação?
+Onde fi a opção de download de anexos no  Mais?",,Descoberta: baixar anexos do extrato de movimentação em lote,dúvida
+sem_match,215476466090104,amostra,"Por que o telefone e o e-mail do prestador/fornecedor estão saindo errados na emissão automáti da NFS-e para um cliente específico, mesmo estando corretos no dastro e saindo certo na nota manual?",,Erro na emissão automática de NFS-e: dados do prestador/fornecedor divergentes do cadastro,bug
+sem_match,215476464591859,censo_n2n3,"Por que a notifição da venda 1051 não chegou nem para mim, mesmo eu recebendo as notifições dos demais meses?
+Como posso configurar a opção de enminhar as notifições também para mim e para o gerente para mantermos o controle de recebimento?
+Por que a notifição apareceu como visualizada no sistema em 11/10, mas só foi acessível hoje tanto para mim quanto para o cliente?",,Dúvida: configuração e falha no recebimento de notificações de vendas,dúvida
+sem_match,215476465083071,amostra,"Como posso inutilizar notas fisis em lote?
+Como posso encontrar todas as notas fisis que podem ser inutilizadas?
+Por que ocorre falha na inutilização por um número da faixa já ter sido utilizado e posso tentar inutilizar novamente depois de excluir a inutilização?",,Dúvida: como inutilizar notas fiscais em lote e tratar falhas de numeração,dúvida
+sem_match,215476464709740,amostra,Por que o número de celular do cliente não está sendo salvo no dastro durante a emissão da nota fisl?,,Erro ao salvar número de celular do cliente no cadastro durante emissão de nota fiscal,bug
+sem_match,215476462347165,amostra,"Quais informações estão disponíveis sobre a ?
+Como faço para agendar a reunião de implantação da ?",,Descoberta: agendamento de reunião de implantação,dúvida
+sem_match,215476460196211,amostra,"Como lançar uma ordem de serviço para mão de obra de ajudantes e informar o valor dos dias trabalhados?
+Devo ir para o orçamento e depois para a venda de serviço para faturar a ordem de serviço?
+Por que a nota fisl e o boleto da terceirização estão indo no outro CNPJ?",,"Dúvida sobre fluxo de ordem de serviço, faturamento e emissão de nota/boleto em CNPJ incorreto",dúvida
+sem_match,215476460925887,amostra,Como posso encontrar os arquivos que foram enminhados pelo WhatsApp?,,Descoberta: localizar arquivos enviados pelo WhatsApp,dúvida
+sem_match,215476464537907,amostra,"Se eu excluir as notas vinculadas a um produto inativo, esse produto também será excluído?",,Descoberta: exclusão de produto inativo vinculado a notas fiscais,dúvida
+sem_match,215476460848572,amostra,"Como posso corrigir em lote os erros E0240 (CEP inválido) e as rejeições por nomes de lojistas estrangeiros no Emissor de Notas Shopee e reprocessar apenas as notas falhas sem duplir as notas já emitidas?
+O limite do meu plano  Pro é de 299 notas por mês e como esse limite é contabilizado?",,Dúvida: correção em lote de erros de emissão na integração Shopee e regra de contagem de limite de notas do plano,dúvida
+sem_match,215476460403379,amostra,"Como posso emitir notas fisis de serviços no  para recebimentos de rtão pingado quando o cliente não tem CPF ou CNPJ?
+A bus automáti de notas fisis no  busrá notas emitidas pela própria empresa, e não apenas notas geradas contra o meu CNPJ?",,Descoberta: emitir nota fiscal de serviço para cliente sem CPF/CNPJ e funcionamento da busca automática de notas,dúvida
+sem_match,215476459777226,amostra,Por que estamos enfrentando uma queda substancial no faturamento?,,Dúvida sobre queda no faturamento,dúvida
+sem_match,215476459804230,amostra,"Como posso ncelar uma licença do meu lote e alor a licença AX Level para o meu painel de cobrança?
+É possível gerar um backup da conta e importar todos os dastros e movimentações da licença atual para alimentar a nova licença?
+É possível importar o cliente para o meu lote usando o banco de dados em vez de planilha?",,"Descoberta: cancelar licença, migrar dados entre contas e importar clientes via banco de dados",dúvida
+sem_match,215476460261788,amostra,"Vocês podem me enviar o extrato da conta PJ em formato PDF e OFX para a empresa MS?
+Como posso obter o extrato oficial do banco se a conta foi encerrada e não aparece mais no aplitivo?",,Dúvida: como obter extrato de conta PJ encerrada,dúvida
+sem_match,215476464859964,amostra,"A  pode notifir o dia de pagamento de uma conta?
+É possível configurar notifições de pagamento para uma conta específi?
+A funcionalidade de notifição de pagamento funciona para contas a pagar?",,Descoberta: configurar notificações de vencimento de contas a pagar,dúvida
+sem_match,215476460703464,amostra,Como posso obter informações sobre a Consultoria de Implantação?,,Descoberta: informações sobre Consultoria de Implantação,dúvida
+sem_match,215476458014177,amostra,O sistema possui opção de incluir agenda ou Kanban?,,Descoberta: incluir agenda ou Kanban,dúvida
